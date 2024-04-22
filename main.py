@@ -2,7 +2,7 @@ import torch
 import numpy as np
 from env import SchedulingEnv
 from model import baseline_DQN, baselines
-from utils import get_args
+from utils import get_args, plot_SR_figure
 
 
 args = get_args()
@@ -113,10 +113,15 @@ print('success_rate:')
 print(performance_success)
 print('utilizationRate:')
 print(performance_util)
-print('finishT:')
-print(performance_finishT)
-print('Cost:')
-print(performance_cost)
+
+
+print("\n This is what is inside args: ", args)
+
+plot_SR_figure(performance_success, args, performance_lamda, "SR")  # ["SR", "UR", "ART"]
+plot_SR_figure(performance_util, args, performance_lamda, "UR")  # ["SR", "UR", "ART"]
+plot_SR_figure(performance_finishT, args, performance_lamda, "ART")  # ["SR", "UR", "ART"]
+
+
 '''
 reward_index = [0, 999, 1999, 2999, 3999, 4999, 5999, 6999, 7999]
 DQN_Reward_Reuslt = []

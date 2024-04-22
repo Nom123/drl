@@ -20,12 +20,12 @@ class baseline_DQN:
             self,
             n_actions,
             n_features,
-            learning_rate=0.01,
-            reward_decay=0.9,
-            e_greedy=0.9,
-            replace_target_iter=50,
-            memory_size=800,
-            batch_size=30,
+            learning_rate=0.002,
+            reward_decay=0.5,
+            e_greedy=2,
+            replace_target_iter=80,
+            memory_size=8000,
+            batch_size=40,
             e_greedy_increment=0.002,
             # output_graph=False,
     ):
@@ -54,7 +54,7 @@ class baseline_DQN:
         self.sess.run(tf.global_variables_initializer())
 
     def _build_net(self):
-        w_initializer = tf.random_normal_initializer(0., 0.3, 5)  # (mean=0.0, stddev=1.0, seed=None)
+        w_initializer = tf.random_normal_initializer(0., 1.0, 5)  # (mean=0.0, stddev=1.0, seed=None)
         # w_initializer = tf.random_normal_initializer(0., 0.3)  # no seed
         b_initializer = tf.constant_initializer(0.1)
         n_l1 = 20  # config of layers
