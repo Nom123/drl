@@ -20,13 +20,13 @@ class baseline_DQN:
             self,
             n_actions,
             n_features,
-            learning_rate=0.002,
-            reward_decay=0.5,
-            e_greedy=2,
-            replace_target_iter=80,
+            learning_rate=0.004,
+            reward_decay=0.8,
+            e_greedy=10,
+            replace_target_iter=200,
             memory_size=8000,
             batch_size=40,
-            e_greedy_increment=0.002,
+            e_greedy_increment=0.001,
             # output_graph=False,
     ):
         self.n_actions = n_actions   # if +1: allow to reject jobs
